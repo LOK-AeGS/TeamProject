@@ -1,0 +1,37 @@
+.body{
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  margin: 0 auto;
+  margin-top: 35px;
+
+}
+.productContainer{
+  border: 1px solid red;
+}
+
+.tv{
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+  place-items: center;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.chucheon{
+  font-size : 50px;
+  font-weight: bold;
+
+}
+
+.ListNTv{
+  display: flex;
+  flex-direction: row;
+}
+.CheckBoxSection{
+  width: 12%;
+  height: 10%;
+  padding: 10px;
+}

@@ -1,0 +1,52 @@
+.container{
+    width: 100%;  
+    border: 1px solid black;
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
+    text-align: center;
+}
+
+.allSort{
+  text-align: center;
+  top: 50%;
+  left: 50%;
+}
+.product_image {
+    border-radius: 10px;
+    margin-bottom: 16px;
+  }
+
+.product_image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid #c4c4c4;
+  }
+.price {
+  text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    
+  }
+
+.name{
+  text-align: center;
+  font-size: 24px;
+    font-weight: bold;
+    line-height: 30px;
+    color: #000000;
+}
+.sirealNumber{
+  text-align: center;
+  font-size: 10px;
+}
+
+.inform {
+  justify-content: center;
+  align-items: center;
+  font-size: 9px;
+}
+
+
+

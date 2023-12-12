@@ -1,0 +1,4 @@
+.checkSection{
+    display: flex;
+    flex-direction: column;
+}

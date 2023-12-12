@@ -1,0 +1,61 @@
+{
+    "refr": [
+      {
+        "id": 1,
+        "name": "FR2",
+        "provider": "아이돈케어",
+        "price": 17100,
+        "image": "/images/image001.png"
+      },
+      {
+        "id": 2,
+        "name": "FR1",
+        "provider": "gorigory",
+        "price": 3000,
+        "image": "/images/image002.png"
+      },
+      {
+        "id": 3,
+        "name": "FR3",
+        "provider": "100-QM",
+        "price": 7000,
+        "image": "/images/image003.png"
+      },
+      {
+        "id": 4,
+        "name": "FR4",
+        "provider": "문구 판매소",
+        "price": 1900,
+        "image": "/images/image004.png"
+      },
+      {
+        "id": 5,
+        "name": "FR5",
+        "provider": "numpy",
+        "price": 99000,
+        "image": "/images/image005.png"
+      },
+      {
+        "id": 6,
+        "name": "FR6",
+        "provider": "보물보따리",
+        "price": 69000,
+        "image": "/images/image006.png"
+      },
+      {
+        "id": 7,
+        "name": "FR7",
+        "provider": "집",
+        "price": 1000000,
+        "image": "/images/image007.png"
+      },
+      {
+        "id": 8,
+        "name": "FR8",
+        "provider": "우당탕탕",
+        "price": 5900,
+        "image": "/images/image008.png"
+      }
+    ]
+  }
+  
