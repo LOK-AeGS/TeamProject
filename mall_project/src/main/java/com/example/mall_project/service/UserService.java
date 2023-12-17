@@ -4,6 +4,8 @@ import com.example.mall_project.domain.User;
 import com.example.mall_project.dto.AddUserRequest;
 import com.example.mall_project.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +15,7 @@ import java.util.List;
 @Service
 public class UserService {
 
+    @Autowired
     private final UserRepository UserRepository;
 
 

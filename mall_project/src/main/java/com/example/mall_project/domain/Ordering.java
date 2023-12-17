@@ -1,15 +1,24 @@
 package com.example.mall_project.domain;
 
-import org.springframework.data.annotation.Id;
+import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
+import javax.persistence.*;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Table
+@DynamicInsert
+@Builder
 public class Ordering {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="ordering_number", updatable = false)
+    @Column(name = "ordering_number", updatable = false)
     private Long image_number;
 
 
@@ -26,5 +35,4 @@ public class Ordering {
 
     @Column(name = "created_date", nullable = true)
     private String created_date;
-
 }

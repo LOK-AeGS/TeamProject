@@ -9,8 +9,10 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 @Table
 @DynamicInsert
+@Builder
 public class User {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,20 +56,6 @@ public class User {
 
 
 
-    @Builder
-    public User(String user_name, String user_identification_number,String user_phone, String user_id,
-                String user_password, String user_gender, String user_birth, String user_email, String user_level, String created_date){
-        this.user_name = user_name;
-        this.user_identification_number =  user_identification_number;
-        this.user_phone =  user_phone;
-        this.user_id =  user_id;
-        this.user_password =  user_password;
-        this.user_gender =  user_gender;
-        this.user_birth =  user_birth;
-        this.user_email =  user_email;
-        this.user_level =  user_level;
-        this.created_date =  created_date;
 
-    }
 
 }
