@@ -3,7 +3,7 @@ package com.example.mall_project.domain;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import javax.persistence.*;
-
+import java.util.Date;
 
 
 @Entity
@@ -33,6 +33,11 @@ public class Ordering {
     @Column(name = "image_primary", nullable = true)
     private String image_primary;
 
-    @Column(name = "created_date", nullable = true)
-    private String created_date;
+    @Column(name = "created_at", columnDefinition = "datetime default NOW()",
+            nullable = true)
+    private Date created_at;
+
+    @Column(name = "updated_at", columnDefinition = "datetime default NOW()",
+            nullable = true)
+    private Date updated_at;
 }

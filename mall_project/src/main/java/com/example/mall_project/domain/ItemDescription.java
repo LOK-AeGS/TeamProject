@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import java.util.Date;
 
 public class ItemDescription {
     @Id
@@ -24,7 +25,11 @@ public class ItemDescription {
     @Column(name = "description_primary", nullable = true)
     private String description_primary;
 
-    @Column(name = "created_date", nullable = true)
-    private String created_date;
+    @Column(name = "created_at", columnDefinition = "datetime default NOW()",
+            nullable = true)
+    private Date created_at;
 
+    @Column(name = "updated_at", columnDefinition = "datetime default NOW()",
+            nullable = true)
+    private Date updated_at;
 }
