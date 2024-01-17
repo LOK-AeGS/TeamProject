@@ -14,15 +14,14 @@ function App() {
   const [fr, setFr] = useState([]);
   return (
 
-
-
     <div>
       
       <Home tv = {tv} setTv = {setTv} fr = {fr} setFr = {setFr}/>
         <Routes>
           <Route exact path = "/" element = {<Home/>}/>
           <Route path="/productTv/:id" element={<Tv/>} />
-          <Route path="/login" element={<LoginPage/>}/>
+          <Route path="AxiosError: Network Error
+                           at XMLHttpRequest.handleError" element={<LoginPage/>}/>
           <Route path="/login/joinmembership" element={JoinMemberShip}/>
         </Routes>
     </div>

@@ -15,10 +15,11 @@ const Home = ({tv, setTv, fr, setFr}) => {
    // <Main tv = {tv} setTv = {setTv} fr = {fr} setFr = {setFr}/>
     //<Login/>
    // <JoinMemberShip/>
+//        <Main tv = {tv} setTv = {setTv} fr = {fr} setFr = {setFr}/>
 
     
     return <div>
-        <Main tv = {tv} setTv = {setTv} fr = {fr} setFr = {setFr}/>
+        <Login/>
         </div>
 }
 

@@ -5,12 +5,59 @@ import {Button, TextField} from '@mui/material';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import style from "./loginModules.css";
+import axios from 'axios';
 
+//https://flykimjiwon.tistory.com/166
 export const Login = () => {
     const [accountId, setAccountId] = useState([]); //아이디
     const [accountPw, setAccountPw] = useState([]); //비밀번호
 
+
+
+
+
+    const onSubmit = async(e) =>{
+    e.preventDefault();
+    e.persist();
+
+    let formData = new FormData();
+
+
+    let dataSet = {
+
+             user_name: '46',
+             user_identification_number: '345',
+             user_phone: '123',
+             user_account_id: '456',
+             user_account_password: '456',
+             user_birth: '123',
+             user_email: '456'
+        }
+
+        const blob = new Blob([JSON.stringify(dataSet)],{type:"application/json"})
+
+        formData.append("data",blob);
+
+        const postLogin = await axios({
+            method: "POST",
+            url: '/users/new',
+            mode: "cors",
+            headers: {
+                "Content-Type":"application/json",
+            },
+            data: dataSet;
+            //https://velog.io/@jyleedev/415-Unsupported-Media-Type
+
+        });
+        console.log(formData);
+
+
+    }
+
+
     return (
+
+    /*
             <div className='login'>
             <div className = 'idLabel'>
             <label>아이디</label>
@@ -34,6 +81,10 @@ export const Login = () => {
             <Button type = "submit">로그인</Button>
             </div>
             </div>
+            */
+            <form onSubmit={(e) => onSubmit(e)}>
+                <button type = "submit">제출</button>
+            </form>
 
 
     )

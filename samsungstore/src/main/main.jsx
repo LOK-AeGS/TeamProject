@@ -9,6 +9,7 @@ import { Header } from "./header/header";
 export const Main = ({tv, setTv, fr, setFr})=>{
 
     useEffect(() => {
+
         {fr &&
         axios.get( "/data/refr.json").then((data) => {
             console.log(data)
