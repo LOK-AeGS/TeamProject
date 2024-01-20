@@ -7,9 +7,16 @@ import { Link } from 'react-router-dom';
 import style from "./loginModules.css";
 import axios from 'axios';
 import {useRef} from 'react';
-
+import {useNavigate} from 'react-router-dom';
+//강제 리랜더링 https://blog.logrocket.com/how-when-to-force-react-component-re-render/
 //https://flykimjiwon.tistory.com/166
+//문제발생 중복확인만 눌렀는데 자동으로 회원가입 버튼까지 눌러진다.
+//HTML의 form 태그로 만들었기 때문에 일어나는 일이었음..
+//여기서 judge_do_duplicate_test는 입력받는 값이 아니므로 current를 사용하면 안됨.
+//***********************ERR 회원가입이 한번 완료되었는데 또 회원가입 버튼을 누르면 회원가입에 성공했다고 뜸 ㅅㅂ;
 export const Login = () => {
+    const navigate = useNavigate();
+    const judge_do_duplicate_test = useRef(false);
 
 //useRef를 사용하는 이유는
     const user_name = useRef("");
@@ -20,23 +27,35 @@ export const Login = () => {
     const user_birth = useRef("");
     const user_email = useRef("");
 
+    const onClick = async(e) => {
+    if(user_account_id.current.value === ""){
+        alert("아이디를 입력해주세요")
+        }
+    else{
+        axios({
+                     method: "GET",
+                            url: '/users/' + user_account_id.current.value,
+                     }).then((user_information)=>{
+                        if(user_information.data.user_account_id === user_account_id.current.value){
+                            alert("아이디가 중복됩니다.")
+                            user_account_id.current.value = "";
+                            console.log(judge_do_duplicate_test.current.value)
+                        }else{
+                            alert("사용가능한 아이디입니다!")
+                            judge_do_duplicate_test.value = true;
+                            console.log(judge_do_duplicate_test.current.value)
+                        }
+              })
+              }
+   }
+
+
     const onSubmit = async(e) =>{
     e.preventDefault();
     e.persist();
-
-//    let formData = new formData();
-/*\
-    let dataSet = {
-
-             user_name: '46',
-             user_identification_number: '345',
-             user_phone: '123',
-             user_account_id: '456',
-             user_account_password: '456',
-             user_birth: '123',
-             user_email: '456'
-        }
-*/
+    if(judge_do_duplicate_test === false){
+        alert("아이디 중복 체크 바람.")
+    }else{
 // input 태그에 ref = {useRef변수}를 달아주면 target이 됨
 //useRef.current 는 e.target과 마찬가지임.
 //값을 받아오려면 useRef.current.value를 해줭햐ㅏㄴ다.
@@ -50,17 +69,6 @@ export const Login = () => {
         user_birth: user_birth.current.value,
         user_email: user_email.current.value,
     }
-//        formData.append("user_account_id",user_account_id);
-//        formData.append("user_identification_number",user_identification_number);
-//        formData.append("user_phone",user_phone);
-//        formData.append("user_account_id",user_account_id);
-//        formData.append("user_account_password",user_account_password);
-//        formData.append("user_birth",user_birth);
-//       formData.append("user_email",user_email);
-//        const blob = new Blob([JSON.stringify(dataSet)],{type:"application/json"})
-//        formData.append("data",blob);
-//        formData.append("user_data",dataSet);
-//        console.log(user_email.current.value);
         var data = JSON.stringify(dataSet)
         console.log(data)
         const postLogin = await axios({
@@ -74,46 +82,29 @@ export const Login = () => {
             //https://velog.io/@jyleedev/415-Unsupported-Media-Type
 
         });
+        alert("회원가입 완료!")
+        navigate('/login')
+//        navigate("/login/login")
+
+        }
     }
 
 
     return (
 
-    /*
-            <div className='login'>
-            <div className = 'idLabel'>
-            <label>아이디</label>
-            </div>
-
-            <TextField //<>를 붙여줘야함 이유는 모르겠따만.
-            id="id"
-            label="아이디"
-            defaultValue={accountId} //defaultValue로 설정을 해줘야지만 입력이 가능해진다. 마찬가지로 onValueChange로 바꿔줘야함.
-            onValueChange={[(e) => setAccountId(e.target.defaultValue)]} 
-            />   
-            <label>비밀번호</label>
-            <TextField
-            id="password"
-            label="비밀번호"
-            defaultValue={accountPw}
-            onValueChange={(e)=>setAccountPw(e.target.defaultValue)}
-            />
-            <div className = "buttonZone">
-            <Link to = "/login/joinmembership"/><Button>회원가입</Button>
-            <Button type = "submit">로그인</Button>
-            </div>
-            </div>
-            */
-            <form onSubmit={(e) => onSubmit(e)} className = 'login'>
+            <div className = 'login'>
                 <input name = 'user_name' type = 'text' ref={user_name} placeholder = "이름"/>
                 <input name = 'user_identification_number' type = 'text' ref={user_identification_number} placeholder = ""/>
                 <input name = 'user_phone' type = 'text' ref={user_phone} placeholder = "전화번호"/>
+                <div>
                 <input name = 'user_account_id' type = 'text' ref={user_account_id} placeholder = "아이디"/>
+                <button name = "duplicateTest" onClick = {onClick}>중복확인</button>
+                </div>
                 <input name = 'user_account_password' type = 'text' ref={user_account_password} placeholder = "비밀번호"/>
                 <input name = 'user_birth' type = 'text' ref={user_birth} placeholder = "생일"/>
                 <input name = 'user_email' type = 'text' ref={user_email} placeholder = "이메일"/>
-                <button type = "submit">제출</button>
-            </form>
+                <button type = "submit" onClick = {(e) =>onSubmit(e)}>회원가입</button>
+            </div>
 
 
     )

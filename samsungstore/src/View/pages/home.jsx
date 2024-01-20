@@ -19,8 +19,6 @@ const Home = ({tv, setTv, fr, setFr}) => {
 
     return <div>
         <Main tv = {tv} setTv = {setTv} fr = {fr} setFr = {setFr}/>
-        <Login/>
-        <JoinMemberShip/>
         </div>
 }
 

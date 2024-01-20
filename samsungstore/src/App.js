@@ -20,9 +20,8 @@ function App() {
         <Routes>
           <Route exact path = "/" element = {<Home/>}/>
           <Route path="/productTv/:id" element={<Tv/>} />
-          <Route path="AxiosError: Network Error
-                           at XMLHttpRequest.handleError" element={<LoginPage/>}/>
-          <Route path="/login/joinmembership" element={JoinMemberShip}/>
+          <Route path="/login/joinmembership" element={<LoginPage/>}/>
+          <Route path="/login" element={<JoinMemberShip/>}/>
         </Routes>
     </div>
   );
