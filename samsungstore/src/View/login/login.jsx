@@ -1,4 +1,4 @@
-//로그인 및 회원가입 창
+//회원가입 창
 //처음엔 로그인 창을 보여줌
 //그 밑에 회원가입 창을 누를 시 회원가입으로 넘어감
 import {Button, TextField} from '@mui/material';

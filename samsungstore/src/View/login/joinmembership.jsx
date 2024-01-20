@@ -1,47 +1,52 @@
 import { TextField, Button } from "@mui/material";
 import { useState } from "react"
 import style from "./joinmembershipModules.css";
-
+import axios from'axios'
+import {useRef} from 'react';
+//이게 로그인 화면
 
 export const JoinMemberShip =() =>{
-    const [accountId, setAccountId] = useState([]); //아이디
-    const [accountPw, setAccountPw] = useState([]); //비밀번호
-    const [accountMiddleName, setAccountMiddleName] = useState([]); //이름 성과 이름 붙이기 
-    const [accountPhoneNumber, setAccountPhoneNumber] = useState([]); //전화번호
+    const accountId = useRef(""); //아이디
+    const accountPw = useRef(""); //비밀번호
+
+
+    const onSubmit = async(e) => {
+     e.preventDefault();
+     e.persist();
+
+        console.log('/users/'+ accountId.current.value)
+        const postLogin = axios({
+                    method: "GET",
+                    url: '/users/' + accountId.current.value, //url + 아이디로 회원의 데이터 조회
+                    }).then((user_information)=>{   //user_information의 data에 password가 담겨있다. 조심!
+                        console.log(user_information.data.user_account_password)
+                        if(user_information.data.user_account_password === accountPw.current.value){
+                            alert("로그인 성공")
+                        }else{
+                            alert("로그인 실패")}
+                    })
+
+
+     }
+//input 에선 useRef가 찍히는데 (current.value)
+//textField에선 useRef가 안찍힌다..;;
     return (
-        <div className="container">
+        <form onSubmit = {(e) => onSubmit(e)}>
             <label>아이디</label>
-            <TextField
+            <input
             id = "id"
-            defaultValue = {accountId}
+            ref = {accountId}
             label = "아이디"
-            onValueChange ={(e) => e.target.defaultValue}
             />
             <label>비밀번호</label>
-            <TextField
+            <input
             id = "password"
-            defaultValue = {accountPw}
+            ref = {accountPw}
             label = "비밀번호"
-            onValueChange ={(e) => e.target.defaultValue}
-            />
-            <label>이름</label>
-            <TextField
-            id = "MiddleName"
-            defaultValue = {accountMiddleName}
-            label = "이름"
-            onValueChange ={(e) => e.target.defaultValue}
-            />
-            <label>전화번호</label>
-            <TextField
-            id = "phoneNumber"
-            defaultValue = {accountPhoneNumber}
-            label = "핸드폰 번호"
-            onValueChange ={(e) => e.target.defaultValue}
             />
             <Button type = 'submit'>회원가입 완료</Button>
-
         
-        </div>
+        </form>
 
 
     )
