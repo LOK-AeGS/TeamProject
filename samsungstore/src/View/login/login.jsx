@@ -60,7 +60,7 @@ export const Login = () => {
 //        const blob = new Blob([JSON.stringify(dataSet)],{type:"application/json"})
 //        formData.append("data",blob);
 //        formData.append("user_data",dataSet);
-        console.log(user_email.current.value);
+//        console.log(user_email.current.value);
         var data = JSON.stringify(dataSet)
         console.log(data)
         const postLogin = await axios({

@@ -1,7 +1,6 @@
 import {Main} from "../main/main";
 import { Body } from "../main/body/body";
 import { Detail } from "../detail/tvDetail";
-import { CssTest } from "../test/cssTest";
 import { Login } from "../login/login";
 import { JoinMemberShip } from "../login/joinmembership";
 import { Header } from "../main/header/header";
@@ -17,8 +16,9 @@ const Home = ({tv, setTv, fr, setFr}) => {
    // <JoinMemberShip/>
 //        <Main tv = {tv} setTv = {setTv} fr = {fr} setFr = {setFr}/>
 
-    
+
     return <div>
+        <Main tv = {tv} setTv = {setTv} fr = {fr} setFr = {setFr}/>
         <Login/>
         </div>
 }

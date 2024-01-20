@@ -1,13 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import {Route, Routes} from 'react-router-dom'
-import Home from './pages/home'; 
+import Home from './View/pages/home';
 import { useState } from 'react';
-import { ProductFr } from './products/productFr';
-import { ProductTv } from './products/productTv';
-import {JoinMemberShip} from './login/joinmembership';
-import LoginPage from './pages/loginPage';
-import Tv from './pages/tv';
+import { ProductFr } from './View/products/productFr';
+import { ProductTv } from './View/products/productTv';
+import {JoinMemberShip} from './View/login/joinmembership';
+import LoginPage from './View/pages/loginPage';
+import Tv from './View/pages/tv';
 
 function App() {
   const [tv, setTv] = useState([]);

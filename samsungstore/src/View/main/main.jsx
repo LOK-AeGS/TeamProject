@@ -23,9 +23,9 @@ export const Main = ({tv, setTv, fr, setFr})=>{
           });
           }
       },[]);
-      
+
       console.log(tv)
-    
+
     return (<div>
       <Header/>
         <Body tv = {tv} setTv = {setTv} fr = {fr} setFr = {setFr}/>
