@@ -8,11 +8,13 @@ import { ProductTv } from './View/products/productTv';
 import {JoinMemberShip} from './View/login/joinmembership';
 import LoginPage from './View/pages/loginPage';
 import Tv from './View/pages/tv';
+import {UserProvider} from './Model/userProvider';
 
 function App() {
   const [tv, setTv] = useState([]);
   const [fr, setFr] = useState([]);
   return (
+  <UserProvider>
 
     <div>
       
@@ -24,6 +26,7 @@ function App() {
           <Route path="/login" element={<JoinMemberShip/>}/>
         </Routes>
     </div>
+    </UserProvider>
   );
 }
 

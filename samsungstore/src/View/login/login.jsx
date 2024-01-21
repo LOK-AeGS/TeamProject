@@ -14,11 +14,11 @@ import {useNavigate} from 'react-router-dom';
 //HTML의 form 태그로 만들었기 때문에 일어나는 일이었음..
 //여기서 judge_do_duplicate_test는 입력받는 값이 아니므로 current를 사용하면 안됨.
 //***********************ERR 회원가입이 한번 완료되었는데 또 회원가입 버튼을 누르면 회원가입에 성공했다고 뜸 ㅅㅂ;
+
 export const Login = () => {
     const navigate = useNavigate();
     const judge_do_duplicate_test : boolean = useRef(false);
 
-//useRef를 사용하는 이유는
     const user_name : string = useRef("");
     const user_identification_number : string = useRef("");
     const user_phone : string = useRef("");

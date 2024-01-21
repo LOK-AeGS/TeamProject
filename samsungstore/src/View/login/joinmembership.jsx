@@ -1,18 +1,23 @@
 import { TextField, Button } from "@mui/material";
-import { useState } from "react"
+import { useState} from "react"
 import style from "./joinmembershipModules.css";
 import axios from'axios'
 import {useRef} from 'react';
 import {useNavigate} from 'react-router-dom'
+import {SetLoginUserInformation} from '../../ViewModel/setLoginUserInformation';
 //이게 로그인 화면
 
-export const JoinMemberShip =() =>{
+
+export const JoinMemberShip = () =>{
+
     const accountId : string = useRef(""); //아이디
     const accountPw : string= useRef(""); //비밀번호
     const navigate = useNavigate()
+
     const navigate_to_sign_up = () => {
         navigate("/login/joinmembership")
     }
+
     const onSubmit = async(e) => {
      e.preventDefault();
      e.persist();
@@ -24,7 +29,11 @@ export const JoinMemberShip =() =>{
                     }).then((user_information)=>{   //user_information의 data에 password가 담겨있다. 조심!
                         console.log(user_information.data.user_account_password)
                         if(user_information.data.user_account_password === accountPw.current.value){
-                            alert("로그인 성공")
+                            alert("로그인 성공");
+//                            set_user_information(user_information.data);
+                            SetLoginUserInformation(user_information.data)
+                            console.log(user_information.data)
+//                            console.log(user);
                         }else{
                             alert("로그인 실패")}
                     })
