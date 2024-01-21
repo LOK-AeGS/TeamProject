@@ -9,7 +9,7 @@ export const MenuBar = () =>{
     <nav className="nav">
       <ul className="navContainer">
         {menuLst.map((v, idx) => (
-          <li          >
+          <li>
             <p key = {idx}>{v}</p>
           </li>
         ))}
