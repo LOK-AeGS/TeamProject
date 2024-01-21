@@ -7,8 +7,8 @@ import {useNavigate} from 'react-router-dom'
 //이게 로그인 화면
 
 export const JoinMemberShip =() =>{
-    const accountId = useRef(""); //아이디
-    const accountPw = useRef(""); //비밀번호
+    const accountId : string = useRef(""); //아이디
+    const accountPw : string= useRef(""); //비밀번호
     const navigate = useNavigate()
     const navigate_to_sign_up = () => {
         navigate("/login/joinmembership")

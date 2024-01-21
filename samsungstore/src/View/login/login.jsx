@@ -16,16 +16,16 @@ import {useNavigate} from 'react-router-dom';
 //***********************ERR 회원가입이 한번 완료되었는데 또 회원가입 버튼을 누르면 회원가입에 성공했다고 뜸 ㅅㅂ;
 export const Login = () => {
     const navigate = useNavigate();
-    const judge_do_duplicate_test = useRef(false);
+    const judge_do_duplicate_test : boolean = useRef(false);
 
 //useRef를 사용하는 이유는
-    const user_name = useRef("");
-    const user_identification_number = useRef("");
-    const user_phone = useRef("");
-    const user_account_id = useRef("");
-    const user_account_password = useRef("");
-    const user_birth = useRef("");
-    const user_email = useRef("");
+    const user_name : string = useRef("");
+    const user_identification_number : string = useRef("");
+    const user_phone : string = useRef("");
+    const user_account_id : string = useRef("");
+    const user_account_password : string  = useRef("");
+    const user_birth : string  = useRef("");
+    const user_email : string = useRef("");
 
     const onClick = async(e) => {
     if(user_account_id.current.value === ""){

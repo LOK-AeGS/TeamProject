@@ -13,6 +13,9 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
+//axios로 url을 받아서 데이터를 가져옴
+//형도 url로 데이터를 받아옴
+//id 이름 이미지?
 
 @CrossOrigin(origins = "http:localhost:3000")
 @RequiredArgsConstructor
